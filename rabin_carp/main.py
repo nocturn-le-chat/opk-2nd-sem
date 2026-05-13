@@ -24,4 +24,5 @@ def rabin_carp(pattern, string):
         if not all([type(k)==str for k in [pattern, string]]): raise TypeError
         elif len(pattern) > len(string): raise ValueError
         else: return rabin_carp_operator(pattern, string)
+    except TypeError: print("ERROR: unsupported input type")
     except ValueError: print("ERROR: string shouldn't be shorter than searched pattern")
