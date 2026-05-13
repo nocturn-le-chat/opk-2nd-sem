@@ -17,5 +17,11 @@ def rabin_carp_operator(pattern, string):
         n_letter_hash = [ord(k) for k in n]
         if p_letter_hash != n_letter_hash:
             matchbox.remove(n)
-    
     return matchbox
+
+def rabin_carp(pattern, string):
+    try:
+        if not all([type(k)==str for k in [pattern, string]]): raise TypeError
+        elif len(pattern) > len(string): raise ValueError
+        else: return rabin_carp_operator(pattern, string)
+    except ValueError: print("ERROR: string shouldn't be shorter than searched pattern")
