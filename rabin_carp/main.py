@@ -1,13 +1,16 @@
+def hash(string):
+    # Хеширование отдельной функцией
+    return sum([ord(string[k])*2048**k for k in range(len(string))])%2099
+
 def rabin_carp_operator(pattern, string):
-    # Хеширование
-    p_hash = sum([ord(pattern[k])*2048**k for k in range(len(pattern))])%2099
+    p_hash = hash(pattern)
     p_len, s_len = len(pattern), len(string)
     matchbox = list()
 
     # Первичная проверка
     for cursor in range(0, s_len-p_len+1):
         slice = string[cursor : cursor+p_len]
-        sl_hash = sum([ord(slice[k])*2048**k for k in range(len(slice))])%2099
+        sl_hash = hash(slice)
         if p_hash == sl_hash:
             matchbox.append(slice)
 
