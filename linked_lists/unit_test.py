@@ -1,2 +1,1 @@
-from main import linked_list
-from random import randint
+from main import Linked_list as subj
