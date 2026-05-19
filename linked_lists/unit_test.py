@@ -4,10 +4,9 @@ from random import randint
 sample_list, sample_list2 = [randint(-1000, 1000) for k in range(randint(1, 100))], [randint(-1000, 1000) for k in range(randint(1, 100))]
 l_samp_list, l_samp_list2 = subj.from_list(sample_list), subj.from_list(sample_list2)
 
-print(sample_list, "\n", subj.to_list(subj.from_list(sample_list)))
-
 print("Executing tests...")
 print("\nNow doing constructor/deconstructors...")
+assert subj.to_str(subj.from_list(["яблоко", "витамины", "мускулы", "секс", "спид", "смерть"])) == "яблоко -> витамины -> мускулы -> секс -> спид -> смерть", "ERROR, bad string deconstructor"
 assert subj.to_list(l_samp_list) == sample_list, "ERROR: bad list deconstructor"
 
 print("\nNow doing paramethers...")
